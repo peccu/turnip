@@ -3,14 +3,52 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>カブ価</title>
+    <title>カブ価/Turnip Price</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+     body{
+       text-align: center;
+     }
+     .price{
+       font-weight: 800;
+     }
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
 
   <body>
     <div id="app">
-      {{ message }}
+      日曜AMの価格<input type="phone" v-model="firstPrice" size="3"/>
+      <div v-for="pattern in patterns" :key="patterns.id">
+        <h1>
+          Pattern {{pattern.id}}: {{pattern.name}}
+        </h1>
+        <div>{{pattern.comment}}</div>
+        <div>このパターンの最小値: {{firstPrice}} x {{pattern.min}} = <span class="price">{{round(firstPrice * pattern.min)}}</span></div>
+        <div>このパターンの最大値: {{firstPrice}} x {{pattern.max}} = <span class="price">{{round(firstPrice * pattern.max)}}</span></div>
+        <table>
+          <tr>
+            <th>特徴</th>
+            <th>継続期間(最短)</th>
+            <th>(最長)</th>
+            <th>その期間の最小倍率</th>
+            <th>最大倍率</th>
+            <th>期間中の減少率</th>
+            <th>追加減少率の最小値</th>
+            <th>最大値</th>
+          </tr>
+          <tr v-for="price in pattern.prices" :key="price.type">
+            <td>{{price.type}}</td>
+            <td>{{price.lengthmin}}</td>
+            <td>{{price.lengthmax}}</td>
+            <td>x{{price.min}} = <span class="price">{{round(firstPrice * price.min)}}</span></td>
+            <td>x{{price.max}} = <span class="price">{{round(firstPrice * price.max)}}</span></td>
+            <td>{{price.decbase}}</td>
+            <td>{{price.decmin}}</td>
+            <td>{{price.decmax}}</td>
+          </tr>
+        </table>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
