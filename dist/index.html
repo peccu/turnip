@@ -29,8 +29,7 @@
         <table>
           <tr>
             <th>特徴</th>
-            <th>継続期間(最短)</th>
-            <th>(最長)</th>
+            <th>継続期間</th>
             <th>その期間の最小倍率</th>
             <th>最大倍率</th>
             <th>期間中の減少率</th>
@@ -39,8 +38,7 @@
           </tr>
           <tr v-for="price in pattern.prices" :key="price.type">
             <td>{{price.type}}</td>
-            <td>{{price.lengthmin}}</td>
-            <td>{{price.lengthmax}}</td>
+            <td>{{price.lengthmin}} ~ {{price.lengthmax}}</td>
             <td>x{{price.min}} = <span class="price">{{round(firstPrice * price.min)}}</span></td>
             <td>x{{price.max}} = <span class="price">{{round(firstPrice * price.max)}}</span></td>
             <td>{{price.decbase}}</td>
