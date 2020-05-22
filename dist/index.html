@@ -18,7 +18,7 @@
 
   <body>
     <div id="app">
-      日曜AMの価格<input type="phone" v-model="firstPrice" size="3"/>
+      日曜AMの価格<input inputmode="numeric" pattern="[0-9]*" type="text" v-model="firstPrice" size="3"/>
       <div v-for="pattern in patterns" :key="patterns.id">
         <h1>
           Pattern {{pattern.id}}: {{pattern.name}}
