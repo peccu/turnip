@@ -6,11 +6,11 @@ const patterns = [
     min: 0.3,
     max: 1.4,
     prices: [
-      {type: 'high-1',     lengthmin: 0, lengthmax: 6, min: 0.9, max: 1.4},
-      {type: 'decrease-1', lengthmin: 2, lengthmax: 3, min: 0.6, max: 0.8, decbase: 0.04, decmin: 0, decmax: 0.06},
-      {type: 'high-2',     lengthmin: 1, lengthmax: 7, min: 0.9, max: 1.4},
-      {type: 'decrease-2', lengthmin: 2, lengthmax: 3, min: 0.6, max: 0.8, decbase: 0.04, decmin: 0, decmax: 0.06},
-      {type: 'high-3',     lengthmin: 0, lengthmax: 6, min: 0.9, max: 1.4}
+      {type: '↗︎1',     lengthmin: 0, lengthmax: 6, min: 0.9, max: 1.4},
+      {type: '↘︎1', lengthmin: 2, lengthmax: 3, min: 0.6, max: 0.8, decbase: 0.04, decmin: 0, decmax: 0.06},
+      {type: '↗︎2',     lengthmin: 1, lengthmax: 7, min: 0.9, max: 1.4},
+      {type: '↘︎2', lengthmin: 2, lengthmax: 3, min: 0.6, max: 0.8, decbase: 0.04, decmin: 0, decmax: 0.06},
+      {type: '↗︎3',     lengthmin: 0, lengthmax: 6, min: 0.9, max: 1.4}
     ]
   },
   {
@@ -20,13 +20,13 @@ const patterns = [
     min: 0.4,
     max: 6.0,
     prices: [
-      {type: 'decrease-1', lengthmin: 1, lengthmax: 7, min: 0.85, max: 0.9, decbase: 0.03, decmin: 0, decmax: 0.02},
-      {type: 'fixed-1', lengthmin: 1, lengthmax: 1, min: 0.9, max: 1.4},
-      {type: 'fixed-2', lengthmin: 1, lengthmax: 1, min: 1.4, max: 2.0},
-      {type: 'fixed-3', lengthmin: 1, lengthmax: 1, min: 2.0, max: 6.0},
-      {type: 'fixed-4', lengthmin: 1, lengthmax: 1, min: 1.4, max: 2.0},
-      {type: 'fixed-5', lengthmin: 1, lengthmax: 1, min: 0.9, max: 1.4},
-      {type: 'high-1', lengthmin: 0, lengthmax: 6, min: 0.4, max: 0.9}
+      {type: '↘︎1', lengthmin: 1, lengthmax: 7, min: 0.85, max: 0.9, decbase: 0.03, decmin: 0, decmax: 0.02},
+      {type: '→1', lengthmin: 1, lengthmax: 1, min: 0.9, max: 1.4},
+      {type: '→2', lengthmin: 1, lengthmax: 1, min: 1.4, max: 2.0},
+      {type: '→3', lengthmin: 1, lengthmax: 1, min: 2.0, max: 6.0},
+      {type: '→4', lengthmin: 1, lengthmax: 1, min: 1.4, max: 2.0},
+      {type: '→5', lengthmin: 1, lengthmax: 1, min: 0.9, max: 1.4},
+      {type: '↗︎1', lengthmin: 0, lengthmax: 6, min: 0.4, max: 0.9}
     ]
   },
   {
@@ -36,7 +36,7 @@ const patterns = [
     min: 0.25,
     max: 0.9,
     prices: [
-      {type: 'decrease-1', lengthmin: 12, lengthmax: 12, min: 0.85, max: 0.9, decbase: 0.03, decmin: 0, decmax: 0.02}
+      {type: '↘︎1', lengthmin: 12, lengthmax: 12, min: 0.85, max: 0.9, decbase: 0.03, decmin: 0, decmax: 0.02}
     ]
   },
   {
@@ -46,14 +46,14 @@ const patterns = [
     min: 0.05,
     max: 2.0,
     prices: [
-      {type: 'decrease-1', lengthmin: 0, lengthmax: 7, min: 0.4, max: 0.9, decbase: 0.03, decmin: 0, decmax: 0.02},
-      {type: 'fixed-1', lengthmin: 1, lengthmax: 1, min: 0.9, max: 1.4},
-      {type: 'fixed-2', lengthmin: 1, lengthmax: 1, min: 0.9, max: 1.4},
-      {type: 'fixed-3', lengthmin: 1, lengthmax: 1, min: 1.4, max: 2.0},
-      {type: 'fixed-4', lengthmin: 1, lengthmax: 1, min: 0.05, max: 1.4},
-      {type: 'fixed-5', lengthmin: 1, lengthmax: 1, min: 0.05, max: 0.9},
-      {type: 'fixed-6', lengthmin: 0, lengthmax: 1, min: 0.05, max: 1.4},
-      {type: 'decrease-2', lengthmin: 0, lengthmax: 6, min: 0.4, max: 0.9, decbase: 0.03, decmin: 0, decmax: 0.02}
+      {type: '↘︎1', lengthmin: 0, lengthmax: 7, min: 0.4, max: 0.9, decbase: 0.03, decmin: 0, decmax: 0.02},
+      {type: '→1', lengthmin: 1, lengthmax: 1, min: 0.9, max: 1.4},
+      {type: '→2', lengthmin: 1, lengthmax: 1, min: 0.9, max: 1.4},
+      {type: '→3', lengthmin: 1, lengthmax: 1, min: 1.4, max: 2.0},
+      {type: '→4', lengthmin: 1, lengthmax: 1, min: 0.05, max: 1.4},
+      {type: '→5', lengthmin: 1, lengthmax: 1, min: 0.05, max: 0.9},
+      {type: '→6', lengthmin: 0, lengthmax: 1, min: 0.05, max: 1.4},
+      {type: '↘︎2', lengthmin: 0, lengthmax: 6, min: 0.4, max: 0.9, decbase: 0.03, decmin: 0, decmax: 0.02}
     ]
   },
 ]
