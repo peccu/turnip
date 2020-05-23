@@ -11,27 +11,27 @@
 
   <body>
     <div id="app">
-      日曜AMの価格<input inputmode="numeric" pattern="[0-9]*" type="text" v-model="firstPrice" size="3"/>
+      Sunday morning price<input inputmode="numeric" pattern="[0-9]*" type="text" v-model="firstPrice" size="3"/>
       <div v-for="pattern in patterns" :key="patterns.id">
         <h1>
           Pattern {{pattern.id}}: {{pattern.name}}
         </h1>
         <div>{{pattern.comment}}</div>
-        <div>このパターンの最小値: {{firstPrice}} x {{pattern.min}} = <span class="price">{{round(firstPrice * pattern.min)}}</span></div>
-        <div>このパターンの最大値: {{firstPrice}} x {{pattern.max}} = <span class="price">{{round(firstPrice * pattern.max)}}</span></div>
+        <div>Theoretical minimum price: {{firstPrice}} x {{pattern.min}} = <span class="price">{{round(firstPrice * pattern.min)}}</span></div>
+        <div>Maximum price: {{firstPrice}} x {{pattern.max}} = <span class="price">{{round(firstPrice * pattern.max)}}</span></div>
         <table>
           <tr>
-            <th>特徴</th>
-            <th>継続期間</th>
-            <th>その期間の倍率<br/>価格</th>
-            <th>期間中の減少率</th>
-            <th>追加減少率</th>
+            <th>Type</th>
+            <th>Duration</th>
+            <th>Rate<br/>Price</th>
+            <th>Decrease</th>
+            <th>Dec. error</th>
           </tr>
           <tr v-for="price in pattern.prices" :key="price.type">
             <td>{{price.type}}</td>
             <td>{{price.lengthmin}} ~ {{price.lengthmax}}</td>
             <td>
-              x{{price.min}} ~ x{{price.max}}<br/>
+              <small>&times;{{price.min}} ~ {{price.max}}</small><br/>
               <span class="price">{{round(firstPrice * price.min)}}</span> ~ <span class="price">{{round(firstPrice * price.max)}}</span>
             </td>
             <td>{{price.decbase}}</td>
