@@ -13,6 +13,38 @@
     <div id="app">
       <div>Sunday morning price</div>
       <div><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="firstPrice" size="6"/></div>
+      <div>Daily prices</div>
+      <div>
+        <table>
+          <tr>
+            <td></td>
+            <td>Mon</td>
+            <td>Tue</td>
+            <td>Wed</td>
+            <td>Thu</td>
+            <td>Fri</td>
+            <td>Sat</td>
+          </tr>
+          <tr>
+            <td>AM</td>
+            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price" size="5"/></td>
+            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price" size="5"/></td>
+            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price" size="5"/></td>
+            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price" size="5"/></td>
+            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price" size="5"/></td>
+            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price" size="5"/></td>
+          </tr>
+          <tr>
+            <td>PM</td>
+            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price" size="5"/></td>
+            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price" size="5"/></td>
+            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price" size="5"/></td>
+            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price" size="5"/></td>
+            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price" size="5"/></td>
+            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price" size="5"/></td>
+          </tr>
+        </table>
+      </div>
       <div v-for="pattern in patterns" :key="patterns.id">
         <h1>
           Pattern {{pattern.id}}: {{pattern.name}}
@@ -21,6 +53,7 @@
         <h2>Theoretical price</h2>
         <div>Minimum price: {{firstPrice}} x {{pattern.min}} = <span class="price">{{round(firstPrice * pattern.min)}}</span></div>
         <div>Maximum price: {{firstPrice}} x {{pattern.max}} = <span class="price">{{round(firstPrice * pattern.max)}}</span></div>
+        <h2>Proce pattern</h2>
         <table>
           <tr>
             <th>Type</th>
