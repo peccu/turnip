@@ -18,7 +18,8 @@
           Pattern {{pattern.id}}: {{pattern.name}}
         </h1>
         <div>{{pattern.comment}}</div>
-        <div>Theoretical minimum price: {{firstPrice}} x {{pattern.min}} = <span class="price">{{round(firstPrice * pattern.min)}}</span></div>
+        <h2>Theoretical price</h2>
+        <div>Minimum price: {{firstPrice}} x {{pattern.min}} = <span class="price">{{round(firstPrice * pattern.min)}}</span></div>
         <div>Maximum price: {{firstPrice}} x {{pattern.max}} = <span class="price">{{round(firstPrice * pattern.max)}}</span></div>
         <table>
           <tr>
