@@ -16,7 +16,7 @@ const patterns = [
   {
     id: 1,
     name: 'high spike',
-    comment: '0.9倍前後をうろうろして、1倍超えたらこれ。2倍を超えたら時が最大なので売る',
+    comment: '0.9倍前後をうろうろして、1倍超えたらこれ。2倍を超えた時が最大なので売る',
     min: 0.4,
     max: 6.0,
     prices: [
