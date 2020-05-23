@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <title>カブ価/Turnip Price</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, user-scalable=no" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
@@ -26,8 +26,7 @@
             <th>その期間の最小倍率</th>
             <th>最大倍率</th>
             <th>期間中の減少率</th>
-            <th>追加減少率の最小値</th>
-            <th>最大値</th>
+            <th>追加減少率</th>
           </tr>
           <tr v-for="price in pattern.prices" :key="price.type">
             <td>{{price.type}}</td>
@@ -35,8 +34,7 @@
             <td>x{{price.min}} = <span class="price">{{round(firstPrice * price.min)}}</span></td>
             <td>x{{price.max}} = <span class="price">{{round(firstPrice * price.max)}}</span></td>
             <td>{{price.decbase}}</td>
-            <td>{{price.decmin}}</td>
-            <td>{{price.decmax}}</td>
+            <td>{{price.decmin}} ~ {{price.decmax}}</td>
           </tr>
         </table>
       </div>
