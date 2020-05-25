@@ -1,6 +1,8 @@
-
 body{
     text-align: center;
+}
+table {
+  width: 100%;
 }
 .price{
     font-weight: 800;
