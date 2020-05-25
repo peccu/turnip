@@ -60,19 +60,24 @@
           <tr>
             <th>Type</th>
             <th>Duration</th>
-            <th>Rate<br/>Price</th>
-            <th>Dec.</th>
-            <th>Dec. error</th>
+            <th>Rate</th>
+            <th>Price</th>
+            <th style="display: none;">Dec.</th>
+            <th style="display: none;">Dec. error</th>
           </tr>
           <tr v-for="price in pattern.prices" :key="price.type">
             <td>{{price.type}}</td>
-            <td>{{price.lengthmin}} ~ {{price.lengthmax}}</td>
             <td>
-              <small>&times;{{price.min}} ~ {{price.max}}</small><br/>
+              <template v-if="price.lengthmin != price.lengthmax">{{price.lengthmin}} ~ {{price.lengthmax}}</template>
+              <template v-else>{{price.lengthmin}}</template>
+            </td>
+            <td>
+              <small>&times;{{price.min}} ~ {{price.max}}</small></td>
+            <td>
               <span class="price">{{round(firstPrice * price.min)}}</span> ~ <span class="price">{{round(firstPrice * price.max)}}</span>
             </td>
-            <td>{{price.decbase}}</td>
-            <td>{{price.decmin}} ~ {{price.decmax}}</td>
+            <td style="display: none;">{{price.decbase}}</td>
+            <td style="display: none;">{{price.decmin}} ~ {{price.decmax}}</td>
           </tr>
         </table>
       </div>
