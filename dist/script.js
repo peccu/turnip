@@ -61,7 +61,19 @@ var app = new Vue({
   el: '#app',
   data: {
     patterns,
-    firstPrice: 90
+    firstPrice: 90,
+    price0: 0,
+    price1: 0,
+    price2: 0,
+    price3: 0,
+    price4: 0,
+    price5: 0,
+    price6: 0,
+    price7: 0,
+    price8: 0,
+    price9: 0,
+    price10: 0,
+    price11: 0
   },
   methods: {
     round(float){
@@ -72,12 +84,48 @@ var app = new Vue({
     firstPrice: function (val) {
       window.localStorage.setItem('firstPrice', val)
     },
+    price0: function (val) {window.localStorage.setItem('price0', val)},
+    price1: function (val) {window.localStorage.setItem('price1', val)},
+    price2: function (val) {window.localStorage.setItem('price2', val)},
+    price3: function (val) {window.localStorage.setItem('price3', val)},
+    price4: function (val) {window.localStorage.setItem('price4', val)},
+    price5: function (val) {window.localStorage.setItem('price5', val)},
+    price6: function (val) {window.localStorage.setItem('price6', val)},
+    price7: function (val) {window.localStorage.setItem('price7', val)},
+    price8: function (val) {window.localStorage.setItem('price8', val)},
+    price9: function (val) {window.localStorage.setItem('price9', val)},
+    price10: function (val) {window.localStorage.setItem('price10', val)},
+    price11: function (val) {window.localStorage.setItem('price11', val)},
   },
   mounted: function () {
-    const saved = window.localStorage.getItem('firstPrice')
-    if(saved != ""){
-      this.firstPrice = saved
+    const firstPrice = window.localStorage.getItem('firstPrice')
+    if(firstPrice != ""){
+      this.firstPrice = firstPrice
     }
+    const price0 = window.localStorage.getItem('price0')
+    const price1 = window.localStorage.getItem('price1')
+    const price2 = window.localStorage.getItem('price2')
+    const price3 = window.localStorage.getItem('price3')
+    const price4 = window.localStorage.getItem('price4')
+    const price5 = window.localStorage.getItem('price5')
+    const price6 = window.localStorage.getItem('price6')
+    const price7 = window.localStorage.getItem('price7')
+    const price8 = window.localStorage.getItem('price8')
+    const price9 = window.localStorage.getItem('price9')
+    const price10 = window.localStorage.getItem('price10')
+    const price11 = window.localStorage.getItem('price11')
+    this.price0 = (price0 != "") ? price0 : ""
+    this.price1 = (price1 != "") ? price1 : ""
+    this.price2 = (price2 != "") ? price2 : ""
+    this.price3 = (price3 != "") ? price3 : ""
+    this.price4 = (price4 != "") ? price4 : ""
+    this.price5 = (price5 != "") ? price5 : ""
+    this.price6 = (price6 != "") ? price6 : ""
+    this.price7 = (price7 != "") ? price7 : ""
+    this.price8 = (price8 != "") ? price8 : ""
+    this.price9 = (price9 != "") ? price9 : ""
+    this.price10 = (price10 != "") ? price10 : ""
+    this.price11 = (price11 != "") ? price11 : ""
     // this.$nextTick(function () {
     //   // Code that will run only after the
     //   // entire view has been rendered
