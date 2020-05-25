@@ -14,7 +14,7 @@
     <div>based on <a href="https://gist.github.com/Treeki/85be14d297c80c8b3c0a76375743325b" target="_blank">this code </a></div>
     <div id="app">
       <h2>Sunday morning price</h2>
-      <div><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="firstPrice" size="6"/></div>
+      <div><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="firstPrice" tabindex="1" size="6"/></div>
       <h2>Daily prices</h2>
       <div>
         <table>
@@ -29,21 +29,21 @@
           </tr>
           <tr>
             <td>AM</td>
-            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price0" size="5"/></td>
-            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price2" size="5"/></td>
-            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price4" size="5"/></td>
-            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price6" size="5"/></td>
-            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price8" size="5"/></td>
-            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price10" size="5"/></td>
+            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price0" tabindex="2" size="5"/></td>
+            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price2" tabindex="4" size="5"/></td>
+            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price4" tabindex="6" size="5"/></td>
+            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price6" tabindex="8" size="5"/></td>
+            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price8" tabindex="10" size="5"/></td>
+            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price10" tabindex="12" size="5"/></td>
           </tr>
           <tr>
             <td>PM</td>
-            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price1" size="5"/></td>
-            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price3" size="5"/></td>
-            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price5" size="5"/></td>
-            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price7" size="5"/></td>
-            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price9" size="5"/></td>
-            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price11" size="5"/></td>
+            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price1" tabindex="3" size="5"/></td>
+            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price3" tabindex="5" size="5"/></td>
+            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price5" tabindex="7" size="5"/></td>
+            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price7" tabindex="9" size="5"/></td>
+            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price9" tabindex="11" size="5"/></td>
+            <td><input inputmode="numeric" pattern="[0-9]*" type="text" v-model="price11" tabindex="13" size="5"/></td>
           </tr>
         </table>
       </div>
