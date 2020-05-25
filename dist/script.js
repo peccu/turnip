@@ -99,7 +99,7 @@ var app = new Vue({
   },
   mounted: function () {
     const firstPrice = window.localStorage.getItem('firstPrice')
-    if(firstPrice != ""){
+    if(firstPrice != "" && firstPrice != "null"){
       this.firstPrice = firstPrice
     }
     const price0 = window.localStorage.getItem('price0')
@@ -114,18 +114,18 @@ var app = new Vue({
     const price9 = window.localStorage.getItem('price9')
     const price10 = window.localStorage.getItem('price10')
     const price11 = window.localStorage.getItem('price11')
-    this.price0 = (price0 != "") ? price0 : ""
-    this.price1 = (price1 != "") ? price1 : ""
-    this.price2 = (price2 != "") ? price2 : ""
-    this.price3 = (price3 != "") ? price3 : ""
-    this.price4 = (price4 != "") ? price4 : ""
-    this.price5 = (price5 != "") ? price5 : ""
-    this.price6 = (price6 != "") ? price6 : ""
-    this.price7 = (price7 != "") ? price7 : ""
-    this.price8 = (price8 != "") ? price8 : ""
-    this.price9 = (price9 != "") ? price9 : ""
-    this.price10 = (price10 != "") ? price10 : ""
-    this.price11 = (price11 != "") ? price11 : ""
+    this.price0 = (price0 != "" && price0 != "null") ? price0 : ""
+    this.price1 = (price1 != "" && price1 != "null") ? price1 : ""
+    this.price2 = (price2 != "" && price2 != "null") ? price2 : ""
+    this.price3 = (price3 != "" && price3 != "null") ? price3 : ""
+    this.price4 = (price4 != "" && price4 != "null") ? price4 : ""
+    this.price5 = (price5 != "" && price5 != "null") ? price5 : ""
+    this.price6 = (price6 != "" && price6 != "null") ? price6 : ""
+    this.price7 = (price7 != "" && price7 != "null") ? price7 : ""
+    this.price8 = (price8 != "" && price8 != "null") ? price8 : ""
+    this.price9 = (price9 != "" && price9 != "null") ? price9 : ""
+    this.price10 = (price10 != "" && price10 != "null") ? price10 : ""
+    this.price11 = (price11 != "" && price11 != "null") ? price11 : ""
     // this.$nextTick(function () {
     //   // Code that will run only after the
     //   // entire view has been rendered
