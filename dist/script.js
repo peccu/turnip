@@ -78,6 +78,12 @@ var app = new Vue({
   methods: {
     round(float){
       return Math.ceil(float*100)/100
+    },
+    calcMin(price){
+      if(!price.decbase || !price.decmax){
+        return price.min
+      }
+      return price.min - price.lengthmax * (price.decbase + price.decmax)
     }
   },
   watch: {

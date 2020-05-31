@@ -72,14 +72,14 @@
               <template v-else>{{price.lengthmin}}</template>
             </td>
             <td>
-              &times;{{price.min}}
+              &times;{{round(calcMin(price))}}
             </td>
             <td> ~ </td>
             <td>
               &times;{{price.max}}
             </td>
             <td>
-              <span class="price">{{round(firstPrice * price.min)}}</span>
+              <span class="price">{{round(firstPrice * calcMin(price))}}</span>
             </td>
             <td> ~ </td>
             <td>
