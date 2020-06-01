@@ -84,6 +84,12 @@ var app = new Vue({
         return price.min
       }
       return price.min - price.lengthmax * (price.decbase + price.decmax)
+    },
+    calcMax(price){
+      if(!price.decbase){
+        return price.max
+      }
+      return price.max - price.lengthmax * price.decbase
     }
   },
   watch: {
