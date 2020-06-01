@@ -79,7 +79,10 @@
               &times;{{price.max}}
             </td>
             <td>
-              <span class="price">{{round(firstPrice * calcMin(price))}}</span>
+              <span class="price">{{round(firstPrice * price.min)}}</span>
+              <template v-if="price.min != calcMin(price)"><br/>↓<br/>
+                <span class="price">{{round(firstPrice * calcMin(price))}}</span>
+              </template>
             </td>
             <td> ~ </td>
             <td>
