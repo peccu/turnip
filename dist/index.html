@@ -72,7 +72,10 @@
               <template v-else>{{price.lengthmin}}</template>
             </td>
             <td>
-              &times;{{round(calcMin(price))}}
+              &times;{{price.min}}
+              <template v-if="price.min != calcMin(price)"><br/>↓<br/>
+                &times;{{round(calcMin(price))}}
+              </template>
             </td>
             <td> ~ </td>
             <td>
