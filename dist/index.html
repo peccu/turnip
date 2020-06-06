@@ -47,6 +47,14 @@
           </tr>
         </table>
       </div>
+      <div>
+        <h2>Price graph</h2>
+        <my-svg :canvas="canvas">
+          <draw-line :canvas="canvas" :points="points" :max="Math.max(max_y, firstPrice)" :color="color"></draw-line>
+          <draw-line :canvas="canvas" :points="firstPrices" :max="Math.max(max_y, firstPrice)" color="red"></draw-line>
+          <my-axis :canvas="canvas" :points="points"></my-axis>
+        </my-svg>
+      </div>
       <div v-for="pattern in patterns" :key="patterns.id">
         <h1>
           Pattern {{pattern.id}}: {{pattern.name}}
