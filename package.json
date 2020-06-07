@@ -4,11 +4,15 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "./build.sh",
+    "dev": "(cd dist ; ran -p 9876 . ) & watchexec -e js -w src -i loader.min.js npm run build"
   },
   "author": "",
   "license": "MIT",
+  "devDependencies": {
+    "esbuild-linux-64": "0.0.9",
+    "netlify-cli": "^2.53.0"
+  },
   "dependencies": {
-    "netlify-cli": "^2.51.0"
   }
 }
