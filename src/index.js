@@ -1,150 +1,15 @@
 import patterns from './patterns'
+import MySvg from './components/MySvg'
+Vue.component('MySvg', MySvg)
 
-Vue.component('my-svg', {
-  props: [
-    'canvas'
-  ],
-  data(){
-    return {
-      width: this.canvas.width,
-      height: this.canvas.height,
-      padding: this.canvas.padding
-    }
-  },
-  template: `<div :style="'height: ' + (height + padding * 2) + 'px; width: ' + (width + padding * 2) + 'px; margin: auto;'">
-  <svg
-    width="100%"
-    height="100%"
-    :viewbox="'0 0 ' + (height + padding * 2) + ' ' + (width + padding * 2)"
-    preserveAspectRatio="xMidYMid meet"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <slot></slot>
-  </svg>
-</div>
-`
-})
+import MyText from './components/MyText'
+Vue.component('MyText', MyText)
 
-Vue.component('my-text', {
-  props: [
-    'x', 'y',
-    'fontSize', 'fill', 'fontWeight',
-    'dominantBaseline', 'textAnchor'
-  ],
-  template: `<text
-  :x="x"
-  :y="y"
-  font-family="-apple-system, system-ui, BlinkMacSystemFont, Roboto"
-  :dominant-baseline="dominantBaseline || 'middle'"
-  :text-anchor="textAnchor || 'middle'"
-  :font-size="fontSize"
-  :fill="fill"
-  :font-weight="fontWeight"
->
-  <slot></slot>
-</text>
-`
-})
+import MyAxis from './components/MyAxis'
+Vue.component('MyAxis', MyAxis)
 
-Vue.component('my-axis', {
-  props: [
-    'points',
-    'canvas'
-  ],
-  data(){
-    return {
-      width: this.canvas.width,
-      height: this.canvas.height,
-      padding: this.canvas.padding,
-      lines: 5,
-    }
-  },
-  methods: {
-    offset_x(i){
-      return this.padding + (i/this.lines) * this.width
-    },
-    offset_y(i){
-      return this.padding + (i/this.lines) * this.height
-    },
-  },
-  computed: {
-    max_x(){
-      return Math.max(...this.points.map(e=>e.x))
-    },
-    max_y(){
-      return Math.max(...this.points.map(e=>e.y))
-    }
-  },
-  filters: {
-    round(val){return Math.round(val)}
-  },
-  template: `<g>
-<!-- y axis -->
-<template v-for="i in [0, 1, 2, 3, 4, 5]">
-  <path v-if="i==lines" stroke="#74838f" stroke-width="2" fill="none"
-        :d="'M ' + padding + ' ' + offset_y(i) + ' L ' + (width + padding) + ' ' + offset_y(i)" />
-  <path v-else stroke="#74838f" stroke-dasharray="10 6" stroke-width="0.5"
-        :d="'M ' + padding + ' ' + offset_y(i) + ' L ' + (width + padding) + ' ' + offset_y(i)" />
-<my-text
-  :x="padding"
-  :y="offset_y(i)"
-  text-anchor="end"
-  font-size="10"
-  fill="#74838f"
- >
- {{((lines - i)/lines * max_y) | round}}
-</my-text>
-</template>
-<!-- x axis -->
-<template v-for="i in [0, 1, 2, 3, 4, 5]">
-  <path stroke="#74838f" stroke-width="2.0"
-        :d="'M ' + offset_x(i) + ' ' + (height + padding) + ' L ' + offset_x(i) + ' ' + (height + padding + 10)" />
-<my-text
-  :x="offset_x(i)"
-  :y="height + padding + 10"
-  dominant-baseline="hanging"
-  font-size="10"
-  fill="#74838f"
- >
- {{i/lines * max_x | round}}
-</my-text>
-</template>
-</g>
-`
-})
-
-Vue.component('draw-line', {
-  props: [
-    'points',
-    'color',
-    'canvas',
-    'max'
-  ],
-  data(){
-    return {
-      width: this.canvas.width,
-      height: this.canvas.height,
-      padding: this.canvas.padding,
-    }
-  },
-  computed: {
-    path(){
-      if(this.points.length == 0){
-        return 'M 0 0'
-      }
-      const max_x = Math.max(...this.points.map(e=>e.x))
-      const max_y = this.max || Math.max(...this.points.map(e=>e.y))
-      const _path = 'M ' + this.points.map(p => {
-        return {
-          x: (p.x / max_x * this.width) + this.padding,
-          y: (p.y / max_y * -1 * this.height) + this.padding + this.height
-        }
-      }).map(p => `${p.x} ${p.y}`).join(' L ')
-      return _path
-    }
-  },
-  template: `<path :stroke="color" stroke-linejoin="round" :d="path" stroke-width="2.0" fill="none" />`
-})
+import DrawLine from './components/DrawLine'
+Vue.component('DrawLine', DrawLine)
 
 const app = new Vue({
   el: '#app',
