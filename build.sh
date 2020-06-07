@@ -18,7 +18,7 @@ echo build $BUILD_ID
 # rm src/loader.min.js
 # echo '}();">' >> dist/index.html
 # cat public/index.tail.html | sed "s/BUILD_ID/$BUILD_ID/" >> dist/index.html
-esbuild --bundle --minify --outdir=dist src/index.js
+esbuild --bundle --minify --outfile=dist/index.js src/index.js
 
 # memo
 # <script>
