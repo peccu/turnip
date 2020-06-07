@@ -10,9 +10,8 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "esbuild-linux-64": "0.0.9",
+    "esbuild": "^0.4.9",
     "netlify-cli": "^2.53.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
