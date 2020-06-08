@@ -11,6 +11,9 @@ Vue.component('MyAxis', MyAxis)
 import DrawLine from './components/DrawLine'
 Vue.component('DrawLine', DrawLine)
 
+import MyCircle from './components/MyCircle'
+Vue.component('MyCircle',  MyCircle)
+
 const app = new Vue({
   el: '#app',
   data: {
