@@ -48,21 +48,15 @@ const app = new Vue({
     round(float){
       return Math.ceil(float*100)/100
     },
-    calcMin(price, nth){
+    calcMin(price, nth=price.lengthmax){
       if(!price.decbase || !price.decmax){
         return price.min
       }
-      if(nth == null){
-        nth = price.lengthmax
-      }
       return price.min - nth * (price.decbase + price.decmax)
     },
-    calcMax(price, nth){
+    calcMax(price, nth=price.lengthmax){
       if(!price.decbase){
         return price.max
-      }
-      if(nth == null){
-        nth = price.lengthmax
       }
       return price.max - nth * price.decbase
     },
