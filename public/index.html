@@ -73,44 +73,52 @@
             <th colspan="3">Price range</th>
             <th style="display: none;">Dec.</th>
             <th style="display: none;">Dec. error</th>
-            <th></th>
           </tr>
-          <tr v-for="price in pattern.prices" :key="price.type">
-            <td>{{price.type}}</td>
-            <td>
-              <template v-if="price.lengthmin != price.lengthmax">{{price.lengthmin}} ~ {{price.lengthmax}}</template>
-              <template v-else>{{price.lengthmin}}</template>
-            </td>
-            <td>
-              &times;{{price.min}}
-              <template v-if="price.min != calcMin(price)"><br/>↓<br/>
-                &times;{{round(calcMin(price))}}
-              </template>
-            </td>
-            <td> ~ </td>
-            <td>
-              &times;{{price.max}}
-              <template v-if="price.max != calcMax(price)"><br/>↓<br/>
-                &times;{{round(calcMax(price))}}
-              </template>
-            </td>
-            <td>
-              <span class="price">{{round(firstPrice * price.min)}}</span>
-              <template v-if="price.min != calcMin(price)"><br/>↓<br/>
-                <span class="price">{{round(firstPrice * calcMin(price))}}</span>
-              </template>
-            </td>
-            <td> ~ </td>
-            <td>
-              <span class="price">{{round(firstPrice * price.max)}}</span>
-              <template v-if="price.max != calcMax(price)"><br/>↓<br/>
-                <span class="price">{{round(firstPrice * calcMax(price))}}</span>
-              </template>
-            </td>
-            <td style="display: none;">{{price.decbase}}</td>
-            <td style="display: none;">{{price.decmin}} ~ {{price.decmax}}</td>
-            <td><my-circle fill="green"></my-circle></td>
-          </tr>
+          <template v-for="price in pattern.prices" :key="price.type">
+            <tr>
+              <td>{{price.type}}</td>
+              <td>
+                <template v-if="price.lengthmin != price.lengthmax">{{price.lengthmin}} ~ {{price.lengthmax}}</template>
+                <template v-else>{{price.lengthmin}}</template>
+              </td>
+              <td>
+                &times;{{price.min}}
+                <template v-if="price.min != calcMin(price)"><br/>↓<br/>
+                  &times;{{round(calcMin(price))}}
+                </template>
+              </td>
+              <td> ~ </td>
+              <td>
+                &times;{{price.max}}
+                <template v-if="price.max != calcMax(price)"><br/>↓<br/>
+                  &times;{{round(calcMax(price))}}
+                </template>
+              </td>
+              <td>
+                <span class="price">{{round(firstPrice * price.min)}}</span>
+                <template v-if="price.min != calcMin(price)"><br/>↓<br/>
+                  <span class="price">{{round(firstPrice * calcMin(price))}}</span>
+                </template>
+              </td>
+              <td> ~ </td>
+              <td>
+                <span class="price">{{round(firstPrice * price.max)}}</span>
+                <template v-if="price.max != calcMax(price)"><br/>↓<br/>
+                  <span class="price">{{round(firstPrice * calcMax(price))}}</span>
+                </template>
+              </td>
+              <td style="display: none;">{{price.decbase}}</td>
+              <td style="display: none;">{{price.decmin}} ~ {{price.decmax}}</td>
+            </tr>
+            <tr>
+              <td colspan="10">
+                <!-- <template v-for="i in [...Array(price.lengthmax).keys()]"> -->
+                <template v-for="i in [...Array(12).keys()]">
+                  <my-circle :fill="inRange(price, points[i].y, i) ? 'green' : 'red'"></my-circle>
+                </template>
+              </td>
+            </tr>
+          </template>
         </table>
       </div>
     </div>

@@ -48,17 +48,30 @@ const app = new Vue({
     round(float){
       return Math.ceil(float*100)/100
     },
-    calcMin(price){
+    calcMin(price, nth){
       if(!price.decbase || !price.decmax){
         return price.min
       }
-      return price.min - price.lengthmax * (price.decbase + price.decmax)
+      if(nth == null){
+        nth = price.lengthmax
+      }
+      return price.min - nth * (price.decbase + price.decmax)
     },
-    calcMax(price){
+    calcMax(price, nth){
       if(!price.decbase){
         return price.max
       }
-      return price.max - price.lengthmax * price.decbase
+      if(nth == null){
+        nth = price.lengthmax
+      }
+      return price.max - nth * price.decbase
+    },
+    inRange(patternPrice, price, i){
+      const min = this.round(this.firstPrice * patternPrice.min)
+      const decmin = this.round(this.firstPrice * this.calcMin(patternPrice, i))
+      const max = this.round(this.firstPrice * patternPrice.max)
+      const decmax = this.round(this.firstPrice * this.calcMax(patternPrice, i))
+      return min <= price && price <= max
     },
     setPoints(){
       const prices = [
