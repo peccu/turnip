@@ -67,6 +67,20 @@ const app = new Vue({
       const decmax = this.round(this.firstPrice * this.calcMax(patternPrice, i))
       return min <= price && price <= max
     },
+    matchCount(pattern, prices, skip=0){
+      const count = prices.map(e => e && e.y).reduce((acc, price, i) => {
+        if(!acc.cont || price == 0){
+          return acc
+        }
+        if(!this.inRange(pattern, price, i)){
+          acc.cont = false
+        }else{
+          acc.count++
+        }
+        return acc
+      }, {cont: true, count: 0})
+      return count.count
+    },
     setPoints(){
       const prices = [
         this.price0 || 0,

@@ -117,6 +117,7 @@
                   <my-circle v-if="points[i] && points[i].y != 0" :fill="inRange(price, points[i].y, i) ? 'green' : 'red'"></my-circle>
                   <my-circle v-else-if="points[i] && points[i].y == 0" r="40" stroke="black" stroke-width="10" fill="none"></my-circle>
                 </template>
+                {{matchCount(price, points)}}
               </td>
             </tr>
           </template>
