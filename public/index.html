@@ -114,7 +114,7 @@
               <td colspan="10">
                 <!-- <template v-for="i in [...Array(price.lengthmax).keys()]"> -->
                 <template v-for="i in [...Array(12).keys()]">
-                  <my-circle :fill="inRange(price, points[i].y, i) ? 'green' : 'red'"></my-circle>
+                  <my-circle v-if="points[i]" :fill="inRange(price, points[i].y, i) ? 'green' : 'red'"></my-circle>
                 </template>
               </td>
             </tr>
